@@ -4,11 +4,12 @@ import (
 	"database/sql"
 	"time"
 
-	_ "github.com/go-sql-driver/mysql" // the _ because not using it in here, but the db needs the driver so must import
+	_ "github.com/go-sql-driver/mysql"
 )
 
+
 const (
-	maxOpenDBConn = 25
+	maxOpenDbConn = 25
 	maxIdleDBConn = 25
 	maxDBLifetime = 5 * time.Minute
 )
@@ -24,8 +25,9 @@ func initMySQLDB(dsn string) (*sql.DB, error) {
 		return nil, err
 	}
 
-	db.SetMaxOpenConns(maxOpenDBConn)
+	db.SetMaxOpenConns(maxOpenDbConn)
 	db.SetMaxIdleConns(maxIdleDBConn)
+	db.SetConnMaxLifetime(maxDBLifetime)
 
 	return db, nil
 }
