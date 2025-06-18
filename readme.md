@@ -13,4 +13,5 @@ Client side doesn't need to know, abstract factory design takes care of it all
 ## REPOSITORY
 
 An intermediary layer between an application's business logic and data storage\
-Ablt to switch databases with ease
+Ablt to switch databases with ease\
+Able to test without connecting to database
