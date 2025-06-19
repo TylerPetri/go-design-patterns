@@ -15,3 +15,16 @@ Client side doesn't need to know, abstract factory design takes care of it all
 An intermediary layer between an application's business logic and data storage\
 Ablt to switch databases with ease\
 Able to test without connecting to database
+
+## SINGLETON
+
+Allows us to restruct the instantiation of something to a singular instance.\
+Useful when exaxctly one object is needed to coordinate actions across a system.\
+For information that will never change.\
+Like when new devs want to work on something related to DB and make calls, but 30 use at same time and exhausts\
+Use `connection.New()` in ./configuration/config.go, won't create a new instance (prone to exhausting DB), it will use the current that was developped.
+
+## BUILDER  
+
+Allows to chain methods, ie:\
+`SetSpecies("dog") SetBreed("Germain Shepherd Dog") Set... Build()`
