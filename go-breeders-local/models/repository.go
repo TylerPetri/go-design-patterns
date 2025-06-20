@@ -22,6 +22,7 @@ func newMysqlRepository(conn *sql.DB) Repository {
 	}
 }
 
+
 type testRepository struct {
 	DB *sql.DB
 }

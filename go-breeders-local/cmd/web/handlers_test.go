@@ -16,7 +16,7 @@ func TestApplication_GetAllDogBreedsJSON(t *testing.T) {
 	// create the handler
 	handler := http.HandlerFunc(testApp.GetAllDogBreedsJSON)
 
-	// serve the handler
+	// serve the handlergo.
 	handler.ServeHTTP(rr, req)
 
 	// check response

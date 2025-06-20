@@ -46,7 +46,6 @@ func main() {
 	xmlAdapter := &adapters.RemoteService{Remote: xmlBackend}
 
 	app.App = configuration.New(db, xmlAdapter)
-	// app.catService = jsonAdapter
 
 	srv := &http.Server{
 		Addr:              port,

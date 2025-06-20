@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go-breeders/configuration"
 	"go-breeders/models"
+	"log"
 )
 
 // AnimalInterface is the interface for the types we will return from our abstract
@@ -71,10 +72,16 @@ func (cf *CatAbstractFactory) newPet() AnimalInterface {
 
 func (cf *CatAbstractFactory) newPetWithBreed(b string) AnimalInterface {
 	// Get Breed for cat
+	app := configuration.GetInstance()
+	breed, err := app.CatService.Remote.GetCatBreedByName(b)
+	if err != nil {
+		log.Println(err)
+		return nil
+	}
 
 	return &CatFromFactory{
 		Pet: &models.Cat{
-			// Breed:
+			Breed: *breed,
 		},
 	}
 }
@@ -104,7 +111,9 @@ func NewPetWithBreedFromAbstractFactory(species, breed string) (AnimalInterface,
 		return dog, nil
 	case "cat":
 		// return a cat with breed embedded
-		return &CatFromFactory{}, nil
+		var catFactory CatAbstractFactory
+		cat := catFactory.newPetWithBreed(breed)
+		return cat, nil
 	default:
 		return nil, errors.New("invalid species supplied")
 	}

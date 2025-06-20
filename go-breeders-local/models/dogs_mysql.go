@@ -54,9 +54,9 @@ func (m *mysqlRepository) GetBreedByName(b string) (*DogBreed, error) {
 				cast(((weight_low_lbs + weight_high_lbs) / 2) as unsigned) as average_weight,
 				lifespan, coalesce(details, ''),
 				coalesce(alternate_names, ''), coalesce(geographic_origin, '')
-				from dog_breeds where breed=?`
+				from dog_breeds where breed = ?`
 
-	row := m.DB.QueryRowContext(ctx, query, b)
+	row := m.DB.QueryRowContext(ctx, query , b)
 	var dogBreed DogBreed
 	err := row.Scan(
 		&dogBreed.ID,

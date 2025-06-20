@@ -48,10 +48,10 @@ type CatBreed struct {
 	Breed            string `json:"breed" xml:"breed"`
 	WeightLowLbs     int    `json:"weight_low_lbs" xml:"weight_low_lbs"`
 	WeightHighLbs    int    `json:"weight_high_lbs" xml:"weight_high_lbs"`
-	AverageWeight    int    `json:"average_weight" xml:"averge_weight"`
+	AverageWeight    int    `json:"average_weight" xml:"average_weight"`
 	Lifespan         int    `json:"average_lifespan" xml:"average_lifespan"`
 	Details          string `json:"details" xml:"details"`
-	AlternateNames   string `json:"alternate_names" xml:"aternate_names"`
+	AlternateNames   string `json:"alternate_names" xml:"alternate_names"`
 	GeographicOrigin string `json:"geographic_origin" xml:"geographic_origin"`
 }
 
