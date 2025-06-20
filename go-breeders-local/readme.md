@@ -35,3 +35,7 @@ Nicer and more readable than sending a big body of params to just one function, 
 myAddress := CreateAddress().SetStreet("Main St.").SetNumber(11).SetCity("Gotham").SetCountry("USA")\
 func CreateAddress() *Address { return &Address{} }\
 func (a *Address) SetStreet(streetName string) *Address { a.street = streetName; return a }
+
+## ADAPTER
+
+Called "Adapter" in many other languages, but a lot like "Repository". Where switching to XML from JSON is made easy (not needing to go through every single JSON instance in our code, hoping we found them all (like global variables in CSS vs hard coding the color at every button))
