@@ -21,11 +21,12 @@ func newMysqlRepository(conn *sql.DB) Repository {
 	}
 }
 
+
 type testRepository struct {
 	DB *sql.DB
 }
 
-func newTestepository(conn *sql.DB) Repository {
+func newTestRepository(conn *sql.DB) Repository {
 	return &testRepository{
 		DB: nil,
 	}

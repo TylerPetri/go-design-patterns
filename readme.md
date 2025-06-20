@@ -28,3 +28,10 @@ Use `connection.New()` in ./configuration/config.go, won't create a new instance
 
 Allows to chain methods, ie:\
 `SetSpecies("dog") SetBreed("Germain Shepherd Dog") Set... Build()`
+
+## BUILER FLUENT INTERFACE
+
+Nicer and more readable than sending a big body of params to just one function, you can see which methods and only send to specific methods (not need all params filled)\
+myAddress := CreateAddress().SetStreet("Main St.").SetNumber(11).SetCity("Gotham").SetCountry("USA")\
+func CreateAddress() *Address { return &Address{} }\
+func (a *Address) SetStreet(streetName string) *Address { a.street = streetName; return a }

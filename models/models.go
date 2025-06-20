@@ -15,7 +15,7 @@ func New(conn *sql.DB) *Models {
 	if conn != nil {
 		repo = newMysqlRepository(conn)
 	} else {
-		repo = newTestepository(nil)
+		repo = newTestRepository(nil)
 	}
 
 	return &Models{
